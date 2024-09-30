@@ -1,11 +1,25 @@
 package opgave02;
 
 public class Monster {
-    int lifePoints;
-    int damagePoints;
-    int chanceOfHit;
-    String description;
-    String attackDescription;
+    private int lifePoints;
+    private int damagePoints;
+    private int chanceOfHit;
+    private String description;
+    private String attackDescription;
+
+
+    public int getLifePoints() {
+        return lifePoints;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setLifePoints(int lifePoints){
+        this.lifePoints = lifePoints;
+    }
+
     public Monster(int lifePoints, int damagePoints, int chanceOfHit, String description, String attackDescription) {
         this.lifePoints = lifePoints;
         this.damagePoints = damagePoints;
@@ -17,12 +31,12 @@ public class Monster {
         System.out.print("the " + description + " " + attackDescription);
         if (roll <= chanceOfHit) {
             System.out.println(" inflicting " + damagePoints + " damage");
-            hero.lifePoints -= damagePoints;
-            if (hero.lifePoints <= 0) {
-                System.out.println("Slaying " + hero.name);
+            hero.setLifePoints(hero.getLifePoints() - damagePoints);
+            if (hero.getLifePoints() <= 0) {
+                System.out.println("Slaying " + hero.getName());
             }
         } else {
-            System.out.println(" but " + hero.name + " defends heroically");
+            System.out.println(" but " + hero.getName() + " defends heroically");
         }
     }
 }
